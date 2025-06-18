@@ -4,7 +4,7 @@ The application has 2 parts:
 * API Webservice: populate the database with data from a json file provided.
 
 ## Database Design
-The database design is shhown in the image below with the tables and relations between them on order to store the data.
+The database design is as shown in the image below with the tables and relations between them in order to store the data.
 
 ![screenshot](./readme_db_design.png)
 
