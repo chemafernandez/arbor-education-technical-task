@@ -76,7 +76,14 @@ The Views to display the reports are allocated under folder `./resources/views/`
 * `report_by_recipient.blade.php` for report with messages grouped by recipient.
 
 ## API Webservice
+An API Webservice is implemented to populate the database with the data from a json file provided. This file contains a list of SMS messages, it is located under folder `./storage/school_messages/` and its filename is set in the config variable `SMS_DATA_FILENAME` in `.env` file (`sms_data.json` by default).
 
+The service reads the content of the data file and inserts it in the database but if any of the messages or entities related already exist, it won't be inserted again.
+
+It's assumed the the data file doesn't contain errors.
+
+The service can be called directly due to there isn't any restriction or authorisation method implemented, simply call this url in your browser:
+* `http://my-domain/api/ingest`
 
 ## Report Builder
 
