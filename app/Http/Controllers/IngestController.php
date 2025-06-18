@@ -31,6 +31,8 @@ class IngestController extends Controller
      */
     public function index() {
         try {
+            $start = microtime(true);
+
             // Read sms data file (json format) and convert to array
             $smsDataJson = file_get_contents(self::SMS_DATA_FILEPATH . $_ENV['SMS_DATA_FILENAME'], false);
             $smsList = json_decode($smsDataJson);
@@ -61,16 +63,19 @@ class IngestController extends Controller
                 $sms->message_id = $this->messageFindable->findOrCreate($sms);
             }
 
+            $executionTime = microtime(true) - $start;
+
             return response()->json([
-                'success' => true,
-                'message' => self::MESSAGE_SUCCESS],
-            200);
+                'success'           => true,
+                'message'           => self::MESSAGE_SUCCESS,
+                'execution_time'    => $executionTime,
+            ], 200);
         } catch (Exception $e) {
             return response()->json([
-                'success' => false,
-                'message' => self::MESSAGE_ERROR,
-                'error_message' => $e->getMessage()],
-            400);
+                'success'       => false,
+                'message'       => self::MESSAGE_ERROR,
+                'error_message' => $e->getMessage(),
+            ], 400);
         }
     }
 }
