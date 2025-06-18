@@ -6,9 +6,7 @@ The application has 2 parts:
 ## Database Design
 The database design is shhown in the image below with the tables and relations between them on order to store the data.
 
-
-
-
+![screenshot](./readme_db_design.png)
 
 ## Software Architecture
 
