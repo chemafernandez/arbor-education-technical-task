@@ -117,6 +117,9 @@ Execute these commands in your terminal to install Git:
 ### Download from GitHub
 Download the application by clonning from a GitHub repository (preferably using `SSH` mode).
 
+### Create a Database
+Create an empty database (suggested name: `arbor_education`).
+
 ### Configuration
 Update `.env` file, allocated in your application root directory, with your database configuration, ie:
 * `DB_CONNECTION=mysql`
