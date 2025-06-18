@@ -115,7 +115,11 @@ Execute these commands in your terminal to install Git:
 * `brew install git`
 
 ### Download from GitHub
-Download the application by clonning from a GitHub repository (preferably using `SSH` mode).
+Download the application by cloning from a GitHub repository (preferably using `SSH` mode).
+
+### Update PHP libraries
+Execute this command in your terminal from your application root directory;
+* `composer update`
 
 ### Create a Database
 Create an empty database (suggested name: `arbor_education`).
