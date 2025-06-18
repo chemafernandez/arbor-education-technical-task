@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 
 class IngestController extends Controller
 {
-    private const SMS_DATA_FILE_PATH = __DIR__ . "/../../../storage/school_messages/sms_data.json";
+    private const SMS_DATA_FILEPATH = __DIR__ . "/../../../storage/school_messages/";
     private const MESSAGE_SUCCESS = "File ingested correctly";
     private const MESSAGE_ERROR = "Ingestion Error";
 
@@ -32,7 +32,7 @@ class IngestController extends Controller
     public function index() {
         try {
             // Read sms data file (json format) and convert to array
-            $smsDataJson = file_get_contents(self::SMS_DATA_FILE_PATH, false);
+            $smsDataJson = file_get_contents(self::SMS_DATA_FILEPATH . $_ENV['SMS_DATA_FILENAME'], false);
             $smsList = json_decode($smsDataJson);
 
             foreach($smsList as $sms) {
