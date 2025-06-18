@@ -97,10 +97,46 @@ The templates (Views) to render these reports are under folder `./resources/view
 Follow the steps below to install and run the application in a `Local` server.
 
 ### Requirements and Installations
+#### PHP >= 8.2
+Execute this command in your terminal to install PHP 8.4:
+`/bin/bash -c "$(curl -fsSL https://php.new/install/mac/8.4)"``
+
+#### Composer
+Follow these instructions to install `composer`:
+`https://getcomposer.org/download/`
+
+#### Node and NPM
+Install Node.js and NPM from here:
+`https://nodejs.org/en`
+
+#### Git
+Execute these commands in your terminal to install Git:
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+`brew install git`
 
 ### Download from GitHub
+Download the application by clonning from a GitHub repository (preferably using `SSH` mode).
 
 ### Configuration
+Update `.env` file, allocated in your application root directory, with your database configuration, ie:
+* `DB_CONNECTION=mysql`
+* `DB_HOST=127.0.0.1`
+* `DB_PORT=3306`
+* `DB_DATABASE=arbor_education`
+* `DB_USERNAME=root`
+* `DB_PASSWORD=`
 
 ### Run Migrations and Seeders
+To create the database structure and populate table `statuses`, execute this command in your terminal from your application root directory;
+`php artisan migrate:refresh --seed`
 
+### Run a dev server
+To run a dev server, execute this command in your terminal from your application root directory;
+`composer run dev`
+
+### Run the application
+* Ingest the sms data file (populate the database):
+** `http://127.0.0.1:8000/api/ingest`
+* Run the reports builder:
+** `http://127.0.0.1:8000/report_all`
+** `http://127.0.0.1:8000/report_by_recipient`
