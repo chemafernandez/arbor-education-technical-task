@@ -1,7 +1,7 @@
 # Arbor Education: Technical Task
 The application has 2 parts:
-* Report Builder: build reports based on the data stored in the database.
 * API Webservice: populate the database with data from a json file provided.
+* Reports Builder: build reports based on the data stored in the database.
 
 ## Database Design
 The database is structured as shown in the image below, illustrating the tables and their relationships used to store the data.
@@ -13,7 +13,7 @@ I added foreign keys to the `Messages` table to establish relationships with oth
 Each table contains an `id` field that serves as the Primary Key and is used to establish Foreign Key relationships. Additionally, the tables include a secondary ID field, which is a string type. This field stores IDs from the source file but does not function as a key, although they are defined as `unique`.
 
 ## Software Architecture
-The application is develop using `Laravel 12` as PHP framework and a MySQL database.
+The application is developed using `Laravel 12` as PHP framework and a MySQL database.
 
 ### `.env` file
 The configuration file `.env` is the root directory. It contains database configuration:
@@ -34,7 +34,7 @@ and some variables:
 ### Controllers
 The Controllers of the application are allocated under folder `./app/Http/Controllers/`:
 * `IngestController.php` for the API Webservice.
-* `ReportController.php` for the Report Builder.
+* `ReportController.php` for the Reports Builder.
 
 ### Models
 The Models are used for mapping the database tables and they are allocated under folder `./app/Models/`:
@@ -81,13 +81,18 @@ The service reads the content of the data file and inserts it in the database bu
 
 It's assumed the the data file doesn't contain errors.
 
-The service can be called directly due to there isn't any restriction or authorisation method implemented, simply call this url in your browser:
+The service is managed by `IngestController` Controller and it can be called directly due to there isn't any restriction or authorisation method implemented, simply call this url in your browser:
 * `http://my-domain/api/ingest`
 
-## Report Builder
+## Reports Builder
+The Reports Builder is a MVC Architecture application, managed by `ReportController` Controller. The data shown in the reports is retrieved from the database, previously populated by ths API Webservice.
 
+It builds 2 types of reports:
+* List of all messages which url is `http://my-domain/report_all`.
+* List of messages grouped by recipient which url is `http://my-domain/report_by_recipient`.
+
+The templates (Views) to display these reports are under folder `./resources/views/`.
 
 ## Installation
 
 
-## 
