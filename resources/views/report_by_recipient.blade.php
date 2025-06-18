@@ -35,7 +35,7 @@
             <div class="row">
                 <div class="col-auto">
                     <div class="mt-3 mb-3">
-                        <p class="fw-bold">Num. of Recipients: {{ $recipientsList->count() }}</p>
+                        <p class="fw-bold">Num. of Recipients: {{ number_format($recipientsList->count(), 0, '', ',') }}</p>
                     </div>
                     @foreach ($recipientsList as $recipientMessages)
                     <hr/>
@@ -52,6 +52,7 @@
                                 <th>MESSAGE</th>
                                 <th>SENDER</th>
                                 <th>RECIPIENT</th>
+                                <th>STUDENT</th>
                                 <th>PROVIDER</th>
                                 <th>TIMESTAMP</th>
                                 <th>STATUS</th>
@@ -66,8 +67,9 @@
                                     <div class="fw-bold">{{ $message->subject }}</div>
                                     <div>{{ $message->body }}</div>
                                 </td>
-                                <td>{{ $message->sender->name }} ({{ $message->sender->id }})</td>
+                                <td>{{ $message->sender->snd_id }}</td>
                                 <td>{{ $message->recipient->phone_number }}</td>
+                                <td>{{ $message->student->std_id }}</td>
                                 <td>{{ $message->provider->name }}</td>
                                 <td>{{ $message->timestamp }}</td>
                                 <td>{{ $message->status->name }}</td>

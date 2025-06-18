@@ -53,15 +53,15 @@ class ReportController extends Controller
         $messagesRejectedRate = $this->rater->calculateRate($messagesRejectedCount, $messagesListCount);
 
         return view('report_all', [
-            'messagesList' => $messagesList,
-            'messagesSentCount' => $messagesSentCount,
-            'messagesSentRate' => $messagesSentRate,
-            'messagesDeliveredCount' => $messagesDeliveredCount,
-            'messagesDeliveredRate' => $messagesDeliveredRate,
-            'messagesFailedCount' => $messagesFailedCount,
-            'messagesFailedRate' => $messagesFailedRate,
-            'messagesRejectedCount' => $messagesRejectedCount,
-            'messagesRejectedRate' => $messagesRejectedRate,
+            'messagesList'              => $messagesList,
+            'messagesSentCount'         => $messagesSentCount,
+            'messagesSentRate'          => $messagesSentRate,
+            'messagesDeliveredCount'    => $messagesDeliveredCount,
+            'messagesDeliveredRate'     => $messagesDeliveredRate,
+            'messagesFailedCount'       => $messagesFailedCount,
+            'messagesFailedRate'        => $messagesFailedRate,
+            'messagesRejectedCount'     => $messagesRejectedCount,
+            'messagesRejectedRate'      => $messagesRejectedRate,
         ]);
     }
 

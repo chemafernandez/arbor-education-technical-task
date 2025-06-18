@@ -18,7 +18,7 @@ class MessagesRater implements RateableInterface
      * Retrieve messages rate
      */
     public function calculateRate(int $rateableMessages, int $totalMessages): float {
-        $rate = ($rateableMessages * 100) / $totalMessages;
+        $rate = $totalMessages ? ($rateableMessages * 100) / $totalMessages : 0;
         return number_format($rate, 2, '.', '');
     }
 }

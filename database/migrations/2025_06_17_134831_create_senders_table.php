@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('senders', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('snd_id')->unique();
             $table->timestamps();
         });
     }

@@ -20,14 +20,15 @@
             <div class="row">
                 <div class="col-auto">
                     <div class="mt-3 mb-3">
-                        <div class="fw-bold">Num. of Messages: {{ $messagesList->count() }}</div>
+                        <div class="fw-bold">Num. of Messages: {{ number_format($messagesList->count(), 0, '', ',') }}</div>
                         <ul>
-                            <li class="fw-bold">Sent: {{ $messagesSentCount }} ({{ $messagesSentRate }}%)</li>
-                            <li class="fw-bold">Delivered: {{ $messagesDeliveredCount }} ({{ $messagesDeliveredRate }}%)</li>
-                            <li class="fw-bold">Failed: {{ $messagesFailedCount }} ({{ $messagesFailedRate }}%)</li>
-                            <li class="fw-bold">Rejected: {{ $messagesRejectedCount }} ({{ $messagesRejectedRate }}%)</li>
+                            <li class="fw-bold">Sent: {{ number_format($messagesSentCount, 0, '', ',') }} ({{ $messagesSentRate }}%)</li>
+                            <li class="fw-bold">Delivered: {{ number_format($messagesDeliveredCount, 0, '', ',') }} ({{ $messagesDeliveredRate }}%)</li>
+                            <li class="fw-bold">Failed: {{ number_format($messagesFailedCount, 0, '', ',') }} ({{ $messagesFailedRate }}%)</li>
+                            <li class="fw-bold">Rejected: {{ number_format($messagesRejectedCount, 0, '', ',') }} ({{ $messagesRejectedRate }}%)</li>
                         </ul>
                     </div>
+                    @if ($messagesList->count() > 0)
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -36,6 +37,7 @@
                                 <th>MESSAGE</th>
                                 <th>SENDER</th>
                                 <th>RECIPIENT</th>
+                                <th>STUDENT</th>
                                 <th>PROVIDER</th>
                                 <th>TIMESTAMP</th>
                                 <th>STATUS</th>
@@ -50,8 +52,9 @@
                                     <div class="fw-bold">{{ $message->subject }}</div>
                                     <div>{{ $message->body }}</div>
                                 </td>
-                                <td>{{ $message->sender->name }} ({{ $message->sender->id }})</td>
+                                <td>{{ $message->sender->snd_id }}</td>
                                 <td>{{ $message->recipient->phone_number }}</td>
+                                <td>{{ $message->student->std_id }}</td>
                                 <td>{{ $message->provider->name }}</td>
                                 <td>{{ $message->timestamp }}</td>
                                 <td>{{ $message->status->name }}</td>
@@ -59,6 +62,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    @endif
                 </div>
             </div>
         </div>
