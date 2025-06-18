@@ -136,7 +136,7 @@ To run a dev server, execute this command in your terminal from your application
 
 ### Run the application
 * Ingest the sms data file (populate the database):
-- `http://127.0.0.1:8000/api/ingest`
+    * `http://127.0.0.1:8000/api/ingest`
 * Run the reports builder:
-- `http://127.0.0.1:8000/report_all`
-- `http://127.0.0.1:8000/report_by_recipient`
+    * `http://127.0.0.1:8000/report_all`
+    * `http://127.0.0.1:8000/report_by_recipient`
