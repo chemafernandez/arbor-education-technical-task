@@ -15,6 +15,26 @@ Each table contains an `id` field that serves as the Primary Key and is used to 
 ## Software Architecture
 The application is develop using `Laravel 12` as PHP framework and a MySQL database.
 
+### `.env` file
+The configuration file `.env` is the root directory. It contains database configuration:
+`
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=arbor_education
+DB_USERNAME=root
+DB_PASSWORD=
+`
+and some variables such as these:
+`
+SMS_DATA_FILENAME="sms_data.json"
+
+MESSAGE_TYPE_SENT="SENT"
+MESSAGE_TYPE_DELIVERED="DELIVERED"
+MESSAGE_TYPE_FAILED="FAILED"
+MESSAGE_TYPE_REJECTED="REJECTED"
+`
+
 ### Controllers
 The Controllers of the application are allocated under folder `./app/Http/Controllers/`:
 * `IngestController.php` for the API Webservice.
