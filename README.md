@@ -26,7 +26,6 @@ The configuration file `.env` is the root directory. It contains database config
 
 and some variables such as these:
 * `SMS_DATA_FILENAME="sms_data.json"`
-
 * `MESSAGE_TYPE_SENT="SENT"`
 * `MESSAGE_TYPE_DELIVERED="DELIVERED"`
 * `MESSAGE_TYPE_FAILED="FAILED"`
