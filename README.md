@@ -91,8 +91,16 @@ It builds 2 types of reports:
 * List of all messages which url is `http://my-domain/report_all`.
 * List of messages grouped by recipient which url is `http://my-domain/report_by_recipient`.
 
-The templates (Views) to display these reports are under folder `./resources/views/`.
+The templates (Views) to render these reports are under folder `./resources/views/`.
 
-## Installation
+## Install and run in `Local`
+Follow the steps below to install and run the application in a `Local` server.
 
+### Requirements and Installations
+
+### Download from GitHub
+
+### Configuration
+
+### Run Migrations and Seeders
 
