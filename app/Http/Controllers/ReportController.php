@@ -73,7 +73,6 @@ class ReportController extends Controller
      * Return to the view, the list of messages grouped by recipient
      */
     public function reportMessagesByRecipient(): View {
-        $this->list = new MessagesList();
         $messagesListGrouped = $this->list->getMessagesGroupedByRecipient();
 
         return view('report_by_recipient', [
