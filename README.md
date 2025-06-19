@@ -1,22 +1,22 @@
 # Arbor Education: Technical Task
 The application has 2 parts:
-* API Webservice: populate the database with data from a json file provided.
-* Reports Builder: build reports based on the data stored in the database.
+* API Webservice: this service populates the database with data from a json file provided.
+* Reports Builder: a MVC architecture to build reports based on the data stored in the database.
 
 ## Database Design
 The database is structured as shown in the image below, illustrating the tables and their relationships used to store the data.
 
 ![screenshot](./readme_db_design.png)
 
-I added foreign keys to the `Messages` table to establish relationships with other entities. This ensures data consistency and referential integrity within the database.
+I added Foreign Keys to the `Messages` table to establish relationships with then other entities. This ensures data consistency and referential integrity within the database design.
 
-Each table contains an `id` field that serves as the Primary Key and is used to establish Foreign Key relationships. Additionally, the tables include a secondary ID field, which is a string type. This field stores IDs from the source file but does not function as a key, although they are defined as `unique`.
+Each table contains an `id` field that serves as the Primary Key and is used to establish Foreign Key relationships. Additionally, the tables include a secondary ID field, which is a string type. This field stores IDs from the source file but don't function as a key, although they are defined as `unique`.
 
 ## Software Architecture
 The application is developed using `Laravel 12` as PHP framework and a MySQL database.
 
 ### `.env` file
-The configuration file `.env` is the root directory. It contains database configuration:
+The configuration file `.env` is located in the root directory. It contains database configuration, ie:
 * `DB_CONNECTION=mysql`
 * `DB_HOST=127.0.0.1`
 * `DB_PORT=3306`
@@ -24,20 +24,13 @@ The configuration file `.env` is the root directory. It contains database config
 * `DB_USERNAME=root`
 * `DB_PASSWORD=`
 
-and some variables:
-* `SMS_DATA_FILENAME="sms_data.json"`
-* `MESSAGE_TYPE_SENT="SENT"`
-* `MESSAGE_TYPE_DELIVERED="DELIVERED"`
-* `MESSAGE_TYPE_FAILED="FAILED"`
-* `MESSAGE_TYPE_REJECTED="REJECTED"`
-
 ### Controllers
-The Controllers of the application are allocated under folder `./app/Http/Controllers/`:
+The Controllers of the application are located under folder `./app/Http/Controllers/`:
 * `IngestController.php` for the API Webservice.
 * `ReportController.php` for the Reports Builder.
 
 ### Models
-The Models are used for mapping the database tables and they are allocated under folder `./app/Models/`:
+The Models are used for mapping the database tables and they are located under folder `./app/Models/`:
 * `Message.php`
 * `Provider.php`
 * `Recipient.php`
@@ -46,7 +39,7 @@ The Models are used for mapping the database tables and they are allocated under
 * `Student.php`
 
 #### Migrations and Seeders
-Migrations, under folder `./database/migrations/` are used to create the tables in the database. Also, a Seeder under folder `./database/seeders/` will populate table `Statutes` with the 4 valid values (SENT|DELIVERED|FAILED|REJECTED) provided in the requirements of the task, just after creating the tables.
+Migrations, under folder `./database/migrations/`, are used to create the tables in the database. Also, a Seeder under folder `./database/seeders/` will populate table `Statutes` with the 4 valid values (SENT|DELIVERED|FAILED|REJECTED) provided in the requirements of the task, just after creating the tables.
 
 ### Classes and Interfaces
 There are some Classes which implement Interfaces to build a software architecture based on abstraction, adhering to the Dependency Inversion principle.
@@ -70,14 +63,14 @@ Interfaces under folder `./app/Interfaces/`:
 * `RateableInterface.php`
 
 ### Views
-The Views to display the reports are allocated under folder `./resources/views/`:
+The Views to display the reports are located under folder `./resources/views/`:
 * `report_all.blade.php` for report with all the messages.
 * `report_by_recipient.blade.php` for report with messages grouped by recipient.
 
 ## API Webservice
 An API Webservice is implemented to populate the database with the data from a json file provided. This file contains a list of SMS messages, it is located under folder `./storage/school_messages/` and its filename is set in the config variable `SMS_DATA_FILENAME` in `.env` file (`sms_data.json` by default).
 
-The service reads the content of the data file and inserts it in the database but if any of the messages or entities related already exist, it won't be inserted again.
+The service reads the contents of the data file and inserts them into the database. However, if any related messages or entities already exist, they are not inserted again.
 
 It's assumed the the data file doesn't contain errors.
 
@@ -131,7 +124,7 @@ Execute this command in your terminal from your application root directory;
 Create an empty database (suggested name: `arbor_education`).
 
 #### 4. Configuration
-Update `.env` file, allocated in your application root directory, with your database configuration, ie:
+Update `.env` file, located in your application root directory, with your database configuration, ie:
 * `DB_CONNECTION=mysql`
 * `DB_HOST=127.0.0.1`
 * `DB_PORT=3306`
