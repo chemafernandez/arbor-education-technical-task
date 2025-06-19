@@ -87,7 +87,7 @@ It builds 2 types of reports:
 The templates (Views) to render these reports are under folder `./resources/views/`.
 
 ## Run the application in `Local`
-Requirements and steps to install and run the application in a `Local` server.
+Requirements and steps to set up and run the application in a `Local` server.
 
 ### Requirements
 Ensure you have installed in your local machine, the software required:
@@ -109,8 +109,8 @@ Execute these commands in your terminal to install Git:
 * `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 * `brew install git`
 
-### Install and run the Application
-Follow the steps below to install and run the application locally.
+### Set up and run the Application
+Follow the steps below to set up and run the application locally.
 
 #### 1. Download from GitHub
 Download the application by cloning from a GitHub repository (preferably using `SSH` mode), ie:
