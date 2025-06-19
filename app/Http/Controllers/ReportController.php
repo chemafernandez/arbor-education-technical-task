@@ -17,6 +17,17 @@ class ReportController extends Controller
     private CountableInterface $counter;
     private RateableInterface $rater;
 
+    public function __construct(
+        MessagesList $list,
+        MessagesCounter $counter,
+        MessagesRater $rater,
+    )
+    {
+        $this->list = $list;
+        $this->counter = $counter;
+        $this->rater = $rater;
+    }
+
     public function index() {
         //
     }
@@ -25,13 +36,6 @@ class ReportController extends Controller
      * Return to the view, the list of all messages and, messages counts and rates by status
      */
     public function reportAllMessages(): View {
-        // Instanciate a listable object
-        $this->list = new MessagesList();
-
-        // Instanciate countable and rateable objects
-        $this->counter = new MessagesCounter();
-        $this->rater = new MessagesRater();
-
         // All messages
         $messagesList = $this->list->getAllMessages();
         $messagesListCount = $messagesList->count();
